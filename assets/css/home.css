@@ -1,0 +1,180 @@
+/* setting background color default */
+body{
+    background-color:lightcoral;
+}
+/* portion of the main content displayed */
+#main-block{
+   background-color: white;
+    position: fixed;
+    top: 50px;
+    height: 700px;
+    width: 75vw;
+    margin-left: 15%;
+    border-radius: 25px;
+    box-shadow: 2px 2px 10px 5px black;
+    background-image: url('/images/CLock3.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* deleting the borders of all input fields */
+input, select, button{
+    border: 0;
+    background-color: inherit;
+    outline: none;
+    font-size: 20px;
+}
+/* all the h1 h2 textalign */
+h1,h2{
+    text-align: center;
+    color: navy;
+}
+/* animation for h2 */
+h2{
+    animation: move 1s ease-in-out alternate infinite;
+}
+/* making the fields as flex so, it can distributed evenlly */
+.fields{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+/* making cursor as pointer */
+.pointer{
+    cursor: pointer;
+}
+/* all the list style to nope */
+li{
+    list-style: none;
+    font-size: 10px;
+}
+/* MAKING MYOUTPUT results into 2parts using flex */
+#output{
+    display: flex;
+    justify-content: space-around;
+    height: 400px;
+}
+/* my first output part MYTASKS */
+#output1{
+  font-weight: bold;
+  height: 360px;
+  width: 800px;
+  overflow: scroll;
+  position: relative;
+  left: 20px;
+} 
+/* second output part sortby */
+#output2{
+    position: relative;
+    top: -100px;
+    padding: 30px;
+}
+/* aligning my output */
+#alignment{
+  border: 2px solid black;
+  border-radius: 20px;
+  height: 40px;
+  border-radius: 10px;
+  padding-top: 13px;
+  animation: border 0.5s ease-in-out infinite;
+}
+/* on hover on mytasks */
+#alignment:hover{
+    background-color: khaki;
+}
+/* styling and animations sortby */
+.style{
+    height: 30px;
+    width: 100px;
+    border: 2px solid black;
+    text-align: center;
+    padding: 4px;
+    margin: 20px;
+    border-radius: 8px;
+    color: navy;
+    animation: border 0.5s ease-in-out infinite;
+}
+/* onhover on style */
+.style:hover {
+    background-color: red;
+}
+/* mytaks animations */
+#ring{
+    animation: ring 1s ease-in-out alternate infinite;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    
+}
+/* firtu animation on inputpart */
+.animation1{
+    animation: run 1s ease-in-out infinite;
+}
+/* onclicking check box increasing the taks-name and linebreak as helpful */
+:checked +span{
+    animation: run 1s ease-in-out infinite;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: line-through;
+}
+/* run animation */
+@keyframes run{
+	from{
+		color: cyan;
+	}
+    30%{
+    	color: red;
+    }
+    50%{
+    	color: violet;
+    }
+    70%{
+    	color: green;
+    }
+	to{
+		color: blue;
+	}
+}
+/* move animation */
+@keyframes move{
+	from{
+		transform: rotateY(400deg);
+	}
+	to{
+		color: red;
+	}
+}
+/* border animation */
+@keyframes border{
+	from{
+        border-right:2px solid gold;
+      
+	}
+	33.3%{
+        border-top: 2px solid black;
+        
+	}
+	66.6%{
+        border-left: 2px solid blue;
+        
+	}
+	to{
+		border-bottom:2px solid brown;
+	}
+}
+/* ring animation on mytaks */
+@keyframes ring{
+	from{
+		color: LightGreen;
+		transform: rotateZ(30deg);
+    }
+    40%{
+        color: yellow;
+    }
+    80%{
+        color: red;
+    }
+	to{
+		color: LightSalmon;
+ 		transform: rotateZ(-30deg);
+	}
+}

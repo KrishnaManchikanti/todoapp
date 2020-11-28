@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>
+            <%=title %>
+        </title>
+        <!-- liniking the css file -->
+        <link rel="stylesheet" href="./css/home.css">
+    </head>
+    <body>
+
+<div id="main-block">
+    <!-- //for home page -->
+        <a href="/"><h1>TODO APP</h1></a>
+        <!-- create-contact method post as we sending data back-->
+    <form action="/create-contact" method="POST">
+        <div class="fields">
+            <input class="animation1" type="text" name="description" value="" placeholder="what do u need to do?" minlength="4" maxlength="8" required>
+                <select class="animation1" name="category" required>
+                    <option value="" selected disabled hidden> Category  </option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="School">School</option>
+                    <option value="Home">Home</option>
+                    <option value="Others">Others</option>
+                </select>
+            <input class="animation1" type="date" name="date" min="2018-01-01" max="2022-12-31" value="2018-01-01" required>
+            <input class="animation1" type="time" name="time" value="08:56" required>
+            <button class="animation1" type="submit"> (+)ADD TASK</button>
+            <h1> <button class="animation1" type="submit" form="delete-form" > (-)DELETETASK</button></h1>
+        </div>
+        
+    </form>
+    <!-- //heading for tasks -->
+        <h1 id="ring">MY-TASKS</h1>
+        
+        <!-- dividing output into 2 parts -->
+<div id="output">
+    <div id="output1">
+        <!-- printing the data from db in the form of list -->
+        <% for(var i of List) {%>
+            <form id="delete-form"  action="/delete-contact"  method="POST" >
+                <div  id="alignment" class="fields" >
+                    <input  type="checkbox" name="id" value="<%= i._id %>" class="pointer" >
+                    <span> <%= i.description%></span>
+                    <span><%= i.category%></span>
+                    <span> <%= i.date%> </span>
+                    <span><%= i.time%></span>
+                    <span>Added Sccessfully</span>
+                </div>
+                <p></p>
+        <% } %>
+            </form> 
+    </div>
+<!-- for SORTBY based on category -->
+    <div id="output2">
+        <h2>SORT-BY</h2>
+        <form action="/find-task" method="POST" class="SORTBY">
+            <div class="style" ><input type="submit" name="find" value="Personal"></div>
+            <div class="style"><input type="submit" name="find" value="Work"></div>
+            <div class="style"><input type="submit" name="find" value="School"></div> 
+            <div class="style"><input type="submit" name="find" value="Home"></div>
+            <div class="style"><input type="submit" name="find" value="Others"></div>
+            <div class="style"><input type="submit" name="find" value="All"></div>
+        </form>
+    </div>
+
+</div>
+            <h1>Welcome</h1>                     
+</div>
+<!-- linking the external js -->
+        <script src="./js/home.js"></script>
+    </body>
+</html>
